@@ -1,5 +1,7 @@
 {
 	"ImportPath": "Gospel",
 	"GoVersion": "go1.5",
-	"Deps": []
+	"Deps": [{
+        "ImportPath": "github.com/spf13/cobra"
+    }]
 }
