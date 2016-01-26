@@ -1,0 +1,5 @@
+{
+	"ImportPath": "Gospel",
+	"GoVersion": "go1.5",
+	"Deps": []
+}
