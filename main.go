@@ -17,6 +17,7 @@ func main() {
         Run: func(cmd *cobra.Command, args []string){
             if len(args) == 0 {
                 fmt.Println("generate exec help")
+                
             }
             if len(args) == 1 {
                 switch args[0] {

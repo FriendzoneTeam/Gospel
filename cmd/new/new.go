@@ -5,6 +5,7 @@ import (
     "fmt"
     "os"
     "github.com/spf13/cobra"
+    "github.com/fatih/color"
 )
 
 func New() *cobra.Command {
@@ -25,14 +26,19 @@ func New() *cobra.Command {
 
 func exec(cmd *cobra.Command, args []string){
     if len(args) == 1 {
-        gopath := os.Getenv("GOPATH")
+        color.Green("Creando nueva aplicacion " + args[0])
+        gopath := os.Getenv("GOPATHs")
         if gopath == "" {
+            color.Set(color.FgRed)
+            defer color.Unset()
             log.Fatalln("GOPATH no found :(")
-            os.Exit(1)
+            
+            os.Exit(2)
         }
         src := fmt.Sprintf("%s\\src", gopath)
         appName := args[0]
         appDir := fmt.Sprintf("%s\\%s", src, appName)
+        
         createAppFolder(appDir, []string{})
         fmt.Printf("appDir: %s\n",appDir)
         createAppFolder(fmt.Sprintf("%s\\%s", appDir, "public"), []string{"assets"})
@@ -75,5 +81,7 @@ func createSubFolder(basePath string, subdirs []string) {
 }
 
 func copyBaseFiles(){
-    
+    // copia el main.go
+    // crea un package.json en public
+    // crea un index.jade
 }
